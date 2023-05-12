@@ -10,4 +10,3 @@ elif n % 2 != 0 and k > (n // 2) + 1:
     print(2 * k - n - 1)
 elif n % 2 != 0 and k <= (n // 2) + 1:
     print(2 * k - 1)
-

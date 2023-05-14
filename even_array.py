@@ -1,26 +1,20 @@
 number_test = int(input())
-
-iteration = 0
-
-while iteration < number_test:
-    iteration += 1
+count = 0
+test = 0
+while test < number_test:
+    test += 1
     n = int(input())
-    array = input()
-    array = [int(i) for i in array.split(" ")]
-    i_mod_2 = [i % 2 for i in range(0, n)]
-    array_mod_2 = [array[i] % 2 for i in range(0, n)]
-
-    if i_mod_2.count(0) != array_mod_2.count(0) or i_mod_2.count(1) != array_mod_2.count(1):
+    array = [i % 2 for i in list(map(int, input().split(" ")))]
+    partern_array = [i % 2 for i in range(n)]
+    if (array.count(0) != partern_array.count(0)) or (array.count(0) != partern_array.count(0)):
         print(-1)
-    elif i_mod_2 == array_mod_2:
+    elif array == partern_array:
         print(0)
     else:
-        move = 0
-        for i in range(0, n):
-            if array_mod_2[i] != i_mod_2[i]:
-                for j in range(i + 1, n):
-                    if array_mod_2[j] != i_mod_2[j]:
-                        array_mod_2[i], array_mod_2[j] = array_mod_2[j], array_mod_2[i]
-                        move += 1
-                        break
-        print(move)
+        for j in range(n):
+            if array[j] != partern_array[j]:
+                count += 1
+        print(count // 2)
+    array.clear()
+    partern_array.clear()
+    count = 0
